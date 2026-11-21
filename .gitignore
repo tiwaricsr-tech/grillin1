@@ -10,3 +10,4 @@ apps/api/dist/
 .DS_Store
 
 *.tsbuildinfo
+/uploads/product-images/
