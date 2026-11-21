@@ -43,7 +43,7 @@ Socket.IO events: server emits `admin:new-order` / `admin:order-updated`; custom
 
 ### Vercel (web)
 1. Import this repo; set Root Directory to `apps/web`, Framework preset Vite, Build command `npm run build`, Output directory `dist`.
-2. Add `VITE_API_URL=https://YOUR-API.onrender.com` and redeploy. The Render `CLIENT_URL` must include the exact Vercel origin.
+2. Add `VITE_API_URL=https://YOUR-API.onrender.com` as a Vercel environment variable and redeploy. This URL is used by browser code, so keep it to the public API origin. Store database URLs, `JWT_SECRET`, `INTEGRATION_ENCRYPTION_KEY`, and private payment credentials on the Render API service; do not commit them or expose them through a `VITE_` variable. The Render `CLIENT_URL` must include the exact Vercel origin.
 
 ## Production checklist / current boundaries
 
