@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: grill-inn-api
+    runtime: node
+    region: singapore
+    plan: starter
+    buildCommand: npm install && npm run db:generate && npm --workspace apps/api run build
+    startCommand: npm --workspace apps/api run db:migrate && npm --workspace apps/api run start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: DIRECT_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: INTEGRATION_ENCRYPTION_KEY
+        sync: false
+      - key: CLIENT_URL
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
